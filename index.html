@@ -40,13 +40,16 @@
     .f-inline-block{
         display: inline-block;
     }
+    #j-ui-parent{
+        height: 380px;
+    }
 </style>
 <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="./bower_components/fullpage.js/jquery.fullPage.css">
 <body>
     <div class="out-box" id="fullpage">
         <div class="section">
-            <div id="j-ui-parent"></div>
+            <div id="j-ui-parent" ></div>
             <img src="http://nos.netease.com/edu-image/EE1E1F0C15DB4A89B47B7F04FEEDCB06.jpg" alt="参数对照">
             <div class="last-tips">
                 <strong>注意：</strong><span>isolate参数本身不支持动态修改，因为已经在编译阶段进行了不同方式的watch绑定，这里每次我让子UI重新渲染的</span>
