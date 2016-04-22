@@ -20,10 +20,17 @@
     input{
         font-size: 16px !important;
     }
+    .tips{
+        display: inline;
+    }
+    img{
+        width: 900px;
+    }
 </style>
 <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
 <body>
     <div id="j-ui-parent"></div>
+    <img src="http://nos.netease.com/edu-image/EE1E1F0C15DB4A89B47B7F04FEEDCB06.jpg" alt="参数对照">
 </body>
 
 <script type="text/plain" id="j-world-tpl">
@@ -54,7 +61,7 @@
                   <man manCount={totalMan} isolate={isolateMan}></man>
            {#else}
 
-                 <h2> 请输出正确的isolate值，否则情况不一定,(位运算决定)</h2>
+                 <h2 class="tips"> 请输出正确的isolate值，否则情况不一定</h2>
             {/if}
             <h1>女孩UI</h1>
             <div class="form-group isolate">
@@ -72,7 +79,7 @@
                   <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
            {#else}
 
-                 <h2> 请输出正确的isolate值，否则情况不一定,(位运算决定)</h2>
+                 <h2 class="tips"> 请输出正确的isolate值，否则情况不一定</h2>
             {/if}
         </form>
     </div>
