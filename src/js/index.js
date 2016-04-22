@@ -66,5 +66,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var world = new World();
     world.$inject(document.querySelector('#j-ui-parent'));
+    $('#fullpage').fullpage();
 
 });

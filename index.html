@@ -2,14 +2,14 @@
 <head>
 </head>
 <style>
-    .world{
+    .out-box{
         margin: 50px;
-    }
-    .last-tips{
-        margin-left: 20px;
     }
     h1{
         margin-top: 40px !important;
+    }
+    h4{
+        display: inline-block;
     }
     strong{
         color: red;
@@ -29,13 +29,38 @@
     img{
         width: 900px;
     }
+    .img2{
+        width: 700px;
+        margin-top: 20px;
+    }
+    .fp-tableCell{
+        vertical-align: top !important;
+    }
+    .f-inline-block{
+        display: inline-block;
+    }
 </style>
 <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="./bower_components/fullpage.js/jquery.fullPage.css">
 <body>
-    <div id="j-ui-parent"></div>
-    <img src="http://nos.netease.com/edu-image/EE1E1F0C15DB4A89B47B7F04FEEDCB06.jpg" alt="参数对照">
-    <div class="last-tips">
-        <strong>注意：</strong><span>isolate参数本身不支持动态修改，因为已经在编译阶段进行了不同方式的watch绑定，这里每次我让子UI重新渲染的</span>
+    <div class="out-box" id="fullpage">
+        <div class="section">
+            <div id="j-ui-parent"></div>
+            <img src="http://nos.netease.com/edu-image/EE1E1F0C15DB4A89B47B7F04FEEDCB06.jpg" alt="参数对照">
+            <div class="last-tips">
+                <strong>注意：</strong><span>isolate参数本身不支持动态修改，因为已经在编译阶段进行了不同方式的watch绑定，这里每次我让子UI重新渲染的</span>
+            </div>
+        </div>
+        <div class="section">
+            <div>
+                <h3 class="f-inline-block"><strong>启示：</strong></h3>
+
+                <h4>
+                    基于Redux的单向数据流，组件嵌套，属性参数一定要加上isolate="1"，脏检查性能<strong>提高n倍</strong>
+                </h4>
+                <img class="img2" src="http://nos.netease.com/edu-image/577FC53AC11D5EA6CE04BCA4F1ED75A3.jpg" alt="脏检查">
+            </div>
+        </div>
     </div>
 </body>
 
@@ -119,6 +144,7 @@
     </div>
 </script>
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="http://cst.stu.126.net/u/js/cms/regular-0.4.3.min.js"></script>
 <script src="./src/js/index.js"></script>
