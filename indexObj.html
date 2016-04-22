@@ -49,22 +49,11 @@
 <body>
     <div class="out-box" id="fullpage">
         <div class="section">
+            <h3>现在父子传递的是对象，即使没有双向绑定，他们的引用对象还是同一个</h3>
             <div id="j-ui-parent" ></div>
-            <img src="http://nos.netease.com/edu-image/EE1E1F0C15DB4A89B47B7F04FEEDCB06.jpg" alt="参数对照">
-            <div class="last-tips">
-                <strong>注意：</strong><span>isolate参数本身不支持动态修改，因为已经在编译阶段进行了不同方式的watch绑定，这里每次我让子UI重新渲染的</span>
-            </div>
-            <a href="./indexObj.html" target="_blank">查看传递的是对象情况</a>
-        </div>
-        <div class="section">
-            <div>
-                <h3 class="f-inline-block"><strong>启示：</strong></h3>
-
-                <h4>
-                    基于Redux的单向数据流，组件嵌套，传递的数据只是子组件用，属性参数一定要加上isolate="1"，脏检查性能<strong>提高n倍</strong>
-                </h4>
-                <img class="img2" src="http://nos.netease.com/edu-image/577FC53AC11D5EA6CE04BCA4F1ED75A3.jpg" alt="脏检查">
-            </div>
+            <button class="btn btn-default btn-success" onclick="world.$update()">点击更新小区UI</button>
+            <button class="btn btn-default btn-success" onclick="man.$update()">点击更新男孩UI</button>
+            <button class="btn btn-default btn-success" onclick="woman.$update()">点击更新女孩UI</button>
         </div>
     </div>
 </body>
@@ -77,9 +66,9 @@
                   <label>总人数:</label>
                   <input type="text" class="form-control"   r-model={totalPerson}/>
                    <label>男孩人数:</label>
-                  <input type="text" class="form-control"   r-model={totalMan}/>
+                  <input type="text" class="form-control"   r-model={totalMan.m}/>
                    <label>女孩人数:</label>
-                  <input type="text" class="form-control"   r-model={totalWoman}/>
+                  <input type="text" class="form-control"   r-model={totalWoman.w}/>
             </div>
           <h1>男孩 UI</h1>
             <div class="form-group isolate">
@@ -88,13 +77,13 @@
             </div>
 
            {#if isolateMan == 0}
-                 <man manCount={totalMan} isolate={isolateMan}></man>
+                 <man ref="man" manCount={totalMan} isolate={isolateMan}></man>
            {#elseif isolateMan == 1}
-                 <man manCount={totalMan} isolate={isolateMan}></man>
+                 <man ref="man" manCount={totalMan} isolate={isolateMan}></man>
            {#elseif isolateMan == 2}
-                 <man manCount={totalMan} isolate={isolateMan}></man>
+                 <man ref="man" manCount={totalMan} isolate={isolateMan}></man>
            {#elseif isolateMan == 3}
-                  <man manCount={totalMan} isolate={isolateMan}></man>
+                  <man ref="man" manCount={totalMan} isolate={isolateMan}></man>
            {#else}
 
                  <h2 class="tips"> 请输出正确的isolate值，否则情况不一定</h2>
@@ -106,13 +95,13 @@
             </div>
 
            {#if isolateWoman == 0}
-                 <woman  womanCount={totalWoman} isolate={isolateWoman}></woman>
+                 <woman ref="woman" womanCount={totalWoman} isolate={isolateWoman}></woman>
            {#elseif isolateWoman == 1}
-                 <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
+                 <woman ref="woman" womanCount={totalWoman} isolate={isolateWoman}></woman>
            {#elseif isolateWoman == 2}
-                 <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
+                 <woman ref="woman" womanCount={totalWoman} isolate={isolateWoman}></woman>
            {#elseif isolateWoman == 3}
-                  <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
+                  <woman ref="woman" womanCount={totalWoman} isolate={isolateWoman}></woman>
            {#else}
 
                  <h2 class="tips"> 请输出正确的isolate值，否则情况不一定</h2>
@@ -125,7 +114,7 @@
    <div class="man">
           <div class="form-group">
                 <label>男孩人数:</label>
-                <input type="text" class="form-control" r-model={manCount}>
+                <input type="text" class="form-control" r-model={manCount.m}>
           </div>
           <div class="form-group">
                <label>生男孩:</label>
@@ -139,7 +128,7 @@
     <div class="woman">
         <div class="form-group">
             <label>女孩人数:</label>
-            <input type="text" class="form-control" r-model={womanCount}>
+            <input type="text" class="form-control" r-model={womanCount.w}>
         </div>
         <div class="form-group">
            <label>生女孩:</label>
