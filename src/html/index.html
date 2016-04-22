@@ -1,0 +1,106 @@
+<html>
+<head>
+</head>
+<style>
+    .world{
+        margin: 50px;
+    }
+    h1{
+        margin-top: 40px !important;
+    }
+    strong{
+        color: red;
+    }
+    .woman , .man {
+        display: inline-block;
+    }
+</style>
+<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<body>
+    <div id="j-ui-parent"></div>
+</body>
+
+<script type="text/plain" id="j-world-tpl">
+    <div class="world">
+        <h1>小区 UI</h1>
+        <form class="form-inline">
+            <div class="form-group">
+                  <label>总人数:</label>
+                  <input type="text" class="form-control"   r-model={totalPerson}/>
+                   <label>男孩人数:</label>
+                  <input type="text" class="form-control"   r-model={totalMan}/>
+                   <label>女孩人数:</label>
+                  <input type="text" class="form-control"   r-model={totalWoman}/>
+            </div>
+          <h1>男孩 UI</h1>
+            <div class="form-group isolate">
+                <strong>isolate值:</strong>
+                <input type="text" class="form-control" r-model={isolateMan}>
+            </div>
+
+           {#if isolateMan == 0}
+                 <man manCount={totalMan} isolate={isolateMan}></man>
+           {#elseif isolateMan == 1}
+                 <man manCount={totalMan} isolate={isolateMan}></man>
+           {#elseif isolateMan == 2}
+                 <man manCount={totalMan} isolate={isolateMan}></man>
+           {#elseif isolateMan == 3}
+                  <man manCount={totalMan} isolate={isolateMan}></man>
+           {#else}
+
+                 <h2> 请输出正确的isolate值，否则情况不一定,(位运算决定)</h2>
+            {/if}
+            <h1>女孩UI</h1>
+            <div class="form-group isolate">
+                <strong>isolate值:</strong>
+                <input type="text" class="form-control" r-model={isolateWoman}>
+            </div>
+
+           {#if isolateWoman == 0}
+                 <woman  womanCount={totalWoman} isolate={isolateWoman}></woman>
+           {#elseif isolateWoman == 1}
+                 <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
+           {#elseif isolateWoman == 2}
+                 <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
+           {#elseif isolateWoman == 3}
+                  <woman womanCount={totalWoman} isolate={isolateWoman}></woman>
+           {#else}
+
+                 <h2> 请输出正确的isolate值，否则情况不一定,(位运算决定)</h2>
+            {/if}
+        </form>
+    </div>
+</script>
+
+<script type="text/plain" id="j-man-tpl">
+   <div class="man">
+          <div class="form-group">
+                <label>男孩人数:</label>
+                <input type="text" class="form-control" r-model={manCount}>
+          </div>
+          <div class="form-group">
+               <label>生男孩:</label>
+                <input type="text" class="form-control" r-model={moreChild}>
+          </div>
+          <button class="btn btn-default btn-success" on-click={this.haveBaby(moreChild)}>点击出生</button>
+
+    </div>
+</script>
+<script type="text/plain" id="j-woman-tpl">
+    <div class="woman">
+        <div class="form-group">
+            <label>女孩人数:</label>
+            <input type="text" class="form-control" r-model={womanCount}>
+        </div>
+        <div class="form-group">
+           <label>生女孩:</label>
+            <input type="text" class="form-control" r-model={moreChild}>
+        </div>
+        <button class="btn btn-default btn-success" on-click={this.haveBaby(moreChild)}>点击出生</button>
+    </div>
+</script>
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://cst.stu.126.net/u/js/cms/regular-0.4.3.min.js"></script>
+<script src="../js/index.js"></script>
+</html>
