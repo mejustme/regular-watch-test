@@ -5,6 +5,9 @@
     .world{
         margin: 50px;
     }
+    .last-tips{
+        margin-left: 20px;
+    }
     h1{
         margin-top: 40px !important;
     }
@@ -31,6 +34,9 @@
 <body>
     <div id="j-ui-parent"></div>
     <img src="http://nos.netease.com/edu-image/EE1E1F0C15DB4A89B47B7F04FEEDCB06.jpg" alt="参数对照">
+    <div class="last-tips">
+        <strong>注意：</strong><span>isolate参数本身不支持动态修改，因为已经在编译阶段进行了不同方式的watch绑定，这里每次我让子UI重新渲染的</span>
+    </div>
 </body>
 
 <script type="text/plain" id="j-world-tpl">
